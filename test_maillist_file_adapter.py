@@ -90,10 +90,9 @@ class MailListFileAdapterTest(unittest.TestCase):
         m = self.factory.create("Hack Bulgaria")
         file_adapter = MailListFileAdapter(self.db_path, m)
         file_adapter.save()
-
+        
         load_adapter = MailListFileAdapter(self.db_path)
         loaded_mail_list = load_adapter.load(file_adapter.get_file_name())
-
         self.assertEqual(0, loaded_mail_list.count())
         self.assertEqual([], loaded_mail_list.get_subscribers())
 
