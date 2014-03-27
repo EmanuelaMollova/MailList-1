@@ -1,10 +1,9 @@
 from maillist import MailList
 import sqlite3
 
-class MailListDBAdapter():
+class MailListDataBaseAdapter():
 	def __init__(self,db_path,mail_list=None):
 		self.__db_name=db_path
-		self.__conn=sqlite3.connect(self.__db_name)
 	def create_table(cursor):
 		cursor.execute(''' CREATE TABLE maillist
 			(id int, name text)''')

@@ -40,7 +40,6 @@ class MailListFileAdapter():
         file = open(self.get_file_path(), "r")
         contents = file.read()
         file.close()
-
         lines = contents.split("\n")
         maillist_id = int(lines[0])
         lines.pop(0)
@@ -49,7 +48,8 @@ class MailListFileAdapter():
 
         for unparsed_subscriber in lines:
             subscriber = unparsed_subscriber.split(" - ")
-            result.add_subscriber(subscriber[0], subscriber[1])
+            if len(subscriber) > 1:
+                result.add_subscriber(subscriber[0], subscriber[1])
 
         return result
 
