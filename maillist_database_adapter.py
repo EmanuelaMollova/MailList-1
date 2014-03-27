@@ -1,3 +1,4 @@
+from maillist import MailList
 import sqlite3
 
 
@@ -18,3 +19,11 @@ class MailListDataBaseAdapter():
 
     def _close_connection(self):
         self._conncetion.close()
+
+    def create_table(self, cursor):
+        cursor.execute(''' CREATE TABLE maillist
+            (id int, name text)''')
+        cursor.execute(''' CREATE TABLE subscribers
+            (id int, name text, email text)''')
+        cursor.execute(''' CREATE TABLE m_to_s
+            (list_id int, subscriber_id int)''')
