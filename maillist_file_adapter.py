@@ -41,6 +41,7 @@ class MailListFileAdapter():
         contents = file.read()
         file.close()
         lines = contents.split("\n")
+
         maillist_id = int(lines[0])
         lines.pop(0)
 
